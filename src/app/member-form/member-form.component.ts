@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { MemberService } from './../../services/member.service';
 import { Member } from 'src/models/Member';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-member-form',
@@ -12,24 +12,44 @@ import { Router } from '@angular/router';
   styleUrls: ['./member-form.component.css']
 })
 export class MemberFormComponent implements OnInit {
-  constructor(private MS: MemberService, private router:Router) {}
+  constructor(private MS: MemberService, private router:Router, private activatedRoute:ActivatedRoute) {}
   form !:FormGroup;
   ngOnInit(): void {
-    this.initForm();
+    // 1. recuperer id de la route active
+    const idcourant = this.activatedRoute.snapshot.params['id'];
+    console.log(idcourant);
+    if(!!idcourant){
+      // 2. if id existe et a une valeur => je suis dans edit
+      this.MS.getMemberById(idcourant).subscribe((response) => {
+        this.initForm(response)
+      })
+    } else {
+      this.initForm();
+    }
   }
-  initForm(){
-    //creation d'une nouvelle instance de Form et initialisation des attributs
-    this.form = new FormGroup({
-      cin: new FormControl(null, Validators.required),
-      name: new FormControl(null, Validators.required),
-      type: new FormControl(null, Validators.required),
-      cv: new FormControl(null, Validators.required),
-    });
-  }
+  initForm(m:Member = {} as Member){
+      //creation d'une nouvelle instance de Form et initialisation des attributs
+      this.form = new FormGroup({
+        cin: new FormControl(m.cin??null, Validators.required),
+        name: new FormControl(m.name??null, Validators.required),
+        type: new FormControl(m.type??null, Validators.required),
+        cv: new FormControl(m.cv??null, Validators.required),
+      });
+    }
   sub(){
     const x:Member = {...this.form.value,createdDate:new Date().toISOString()};
-    this.MS.addMember(x).subscribe(()=>{
-      this.router.navigate(['/']);
-    });
+    const idcourant = this.activatedRoute.snapshot.params['id'];
+    console.log(idcourant);
+    if(!!idcourant){
+      const x:Member = {...this.form.value,createdDate:new Date().toISOString(), id:idcourant};
+      this.MS.updateMember(x).subscribe(()=>{
+        this.router.navigate(['/']);
+      })
+    } else {
+      this.MS.addMember(x).subscribe(()=>{
+        this.router.navigate(['/']);
+      });
+    }
+
   }
 }
