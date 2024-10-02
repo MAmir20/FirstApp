@@ -6,7 +6,7 @@ import { MemberService } from './../../services/member.service';
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
-  styleUrls: ['./member.component.css'],
+  styleUrls: ['./member.component.css']
 })
 export class MemberComponent implements OnInit {
   // Injection du service MemberService
@@ -14,31 +14,15 @@ export class MemberComponent implements OnInit {
   // en creant une instance de ce service dans le constructeur du component
   constructor(private MS: MemberService) {}
 
-  displayedColumns: string[] = [
-    'id',
-    'cin',
-    'name',
-    'cv',
-    'type',
-    'createdDate',
-    'actions',
-  ];
-  dataSource: Member[] = [];
+  displayedColumns: string[] = ['id', 'cin', 'name', 'cv', 'type', 'createdDate', 'actions'];
+  dataSource : Member[]= [];
 
-  fetchMembers(): void {
-    this.MS.getAllMembers().subscribe((response) => {
-      this.dataSource = response;
-    });
-  }
+  ngOnInit():void{
 
-  ngOnInit(): void {
     // Appeler la fonction getAllMembers() du service MemberService
     // Attendre la reponse et affecter le resultat à la variable dataSource
-    this.fetchMembers();
-  }
-  delete(id: string): void {
-    this.MS.deleteMember(id).subscribe(() => {
-      this.fetchMembers();
+    this.MS.getAllMembers().subscribe((response)=>{
+      this.dataSource = response;
     });
   }
 }

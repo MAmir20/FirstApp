@@ -20,10 +20,10 @@ export class MemberService {
   addMember(member:Member):Observable<void>{
     return this.http.post<void>('http://localhost:3000/members',member);
   }
-  updateMember(member:Member):Observable<void>{
-    return this.http.put<void>(`http://localhost:3000/members/${member.id}`,member);
+  updateMember(member:Member):Observable<Member>{
+    return this.http.put<Member>('http://localhost:3000/members/'+member.id,member);
   }
-  deleteMember(id:string):Observable<void>{
-    return this.http.delete<void>(`http://localhost:3000/members/${id}`);
+  deleteMember(id:string):Observable<Member>{
+    return this.http.delete<Member>('http://localhost:3000/members/'+id);
   }
 }

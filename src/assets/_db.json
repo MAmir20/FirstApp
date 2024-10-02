@@ -1,12 +1,51 @@
 {
   "members": [
     {
+      "id": "1",
       "cin": "12345678",
-      "name": "Johna",
-      "type": "studentss",
+      "name": "John",
       "cv": "John's CV",
-      "createdDate": "2024-09-30T15:58:53.450Z",
-      "id": "1"
+      "type": "student",
+      "createdDate": "12/12/2024"
+    },
+    {
+      "id": "2",
+      "cin": "87654321",
+      "name": "Doe",
+      "cv": "Doe's CV",
+      "type": "teacher",
+      "createdDate": "21/21/2024"
+    },
+    {
+      "id": "fb58",
+      "cin": "jhhjv",
+      "name": "gg",
+      "type": "jgg",
+      "cv": "ggnb;"
+    },
+    {
+      "id": "71e1",
+      "cin": "12345678",
+      "name": "gg",
+      "type": "jgg",
+      "cv": "ggnb;",
+      "createdDate": "2024-09-23T15:41:16.882Z"
+    },
+    {
+      "id": "bf06",
+      "cin": "4568756",
+      "name": "irughzidoj",
+      "type": "oisudhgizueh",
+      "cv": "isdhfioazuf",
+      "createdDate": "2024-09-23T15:45:39.111Z"
+    },
+    {
+      "id": "170a",
+      "cin": "dsjg",
+      "name": "lqdkjgh",
+      "type": "iqsuhdg",
+      "cv": "idufgi",
+      "createdDate": "2024-09-23T15:47:53.173Z"
     }
   ]
 }

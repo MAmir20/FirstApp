@@ -1,11 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="sub()">
-  <mat-form-field hidden>
-    <mat-label hidden>CIN</mat-label>
-    <input hidden matInput formControlName="cin">
-  </mat-form-field>
   <mat-form-field>
     <mat-label>CIN</mat-label>
-    <input matInput matInput formControlName="cin">
+    <input matInput formControlName="cin">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Name</mat-label>
