@@ -27,6 +27,11 @@ import { EventsComponent } from './events/events.component';
 import { FirebaseModule } from './Firebase.module';
 import { LoginComponent } from './login/login.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ModalComponent } from './modal/modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -37,8 +42,9 @@ import {MatCardModule} from '@angular/material/card';
     DashboardComponent,
     ToolsComponent,
     ArticlesComponent,
-    EventsComponent,
     LoginComponent,
+    EventsComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +65,11 @@ import {MatCardModule} from '@angular/material/card';
     MatMenuModule,
     FirebaseModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
