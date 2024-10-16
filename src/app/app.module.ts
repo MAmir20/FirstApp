@@ -33,7 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { ConfirmComponent } from './confirm/confirm.component';
-
+import { NgChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +71,8 @@ import { ConfirmComponent } from './confirm/confirm.component';
     MatPaginatorModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
