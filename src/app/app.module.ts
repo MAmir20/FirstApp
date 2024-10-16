@@ -32,6 +32,7 @@ import { ModalComponent } from './modal/modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     ArticlesComponent,
     LoginComponent,
     EventsComponent,
-    ModalComponent
+    ModalComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
